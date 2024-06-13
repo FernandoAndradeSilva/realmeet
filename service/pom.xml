@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>br.com.fernando</groupId>
         <artifactId>realmeet</artifactId>
+        <groupId>br.com.fernando</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>service</artifactId>
+    <artifactId>realmeet-service</artifactId>
 
     <properties>
         <java.version>22</java.version>
@@ -19,6 +19,7 @@
         <springdoc-openapi-ui.version>1.8.0</springdoc-openapi-ui.version>
         <mockito-junit-jupiter.version>3.7.7</mockito-junit-jupiter.version>
         <prettier-maven-plugin.version>0.16</prettier-maven-plugin.version>
+
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -68,6 +69,8 @@
             <artifactId>jackson-databind-nullable</artifactId>
             <version>${jackson-databind-nullable.version}</version>
         </dependency>
+
+
 
         <dependency>
             <groupId>io.swagger</groupId>
