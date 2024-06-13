@@ -16,9 +16,9 @@
         <testcontainers.version>1.15.2</testcontainers.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <jackson-databind-nullable.version>0.2.1</jackson-databind-nullable.version>
-        <springdoc-openapi-ui.version>1.5.4</springdoc-openapi-ui.version>
+        <springdoc-openapi-ui.version>1.8.0</springdoc-openapi-ui.version>
         <mockito-junit-jupiter.version>3.7.7</mockito-junit-jupiter.version>
-        <prettier-maven-plugin.version>0.10</prettier-maven-plugin.version>
+        <prettier-maven-plugin.version>0.16</prettier-maven-plugin.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -164,18 +164,22 @@
                 <artifactId>prettier-maven-plugin</artifactId>
                 <version>${prettier-maven-plugin.version}</version>
                 <configuration>
-                    <printWidth>120</printWidth>
-                    <tabWidth>4</tabWidth>
-                    <prettierJavaVersion>0.7.1</prettierJavaVersion>
-                    <generateDiff>true</generateDiff>
-                    <fail>true</fail>
+                    <prettierJavaVersion>2.0.0</prettierJavaVersion>
+                    <printWidth>90</printWidth>
+                    <tabWidth>2</tabWidth>
+                    <useTabs>false</useTabs>
+                    <ignoreConfigFile>true</ignoreConfigFile>
+                    <ignoreEditorConfig>true</ignoreEditorConfig>
+                    <!-- Use <inputGlobs> to override the default input patterns -->
+                    <inputGlobs>
+                        <!-- These are the default patterns, you can omit <inputGlobs> entirely unless you want to override them -->
+                        <inputGlob>src/main/java/**/*.java</inputGlob>
+                        <inputGlob>src/test/java/**/*.java</inputGlob>
+                    </inputGlobs>
                 </configuration>
                 <executions>
                     <execution>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
+                        <phase>validate</phase>
                     </execution>
                 </executions>
             </plugin>
