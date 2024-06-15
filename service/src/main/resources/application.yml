@@ -1,4 +1,17 @@
+# =================================
+# = Server
+# =================================
+server:
+  port: 8080
+  servlet:
+    context-path: /v1
+
+# =================================
+# = Spring
+# =================================
 spring:
+  profiles:
+    active: dev
   application:
     name: 'spring.application.name=realmeet'
   datasource:
@@ -7,16 +20,11 @@ spring:
     username: root
     password: root
     type: com.zaxxer.hikari.HikariDataSource
-server:
-  port: 8080
-  servlet:
-    context-path: /v1
-
 
 # =================================
 # = Logging
 # =================================
 logging:
   level:
-    org.springframework: ERROR
-    org.flywaydb: ERROR
+    org.springframework: INFO
+    org.flywaydb: INFO
