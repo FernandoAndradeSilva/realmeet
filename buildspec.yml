@@ -4,7 +4,7 @@ phases:
   install:
     runtime-versions:
       java: corretto21
-      docker: 24.0.9
+      docker: 20
   build:
     commands:
       - echo Build started on `date`
