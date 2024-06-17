@@ -24,6 +24,7 @@
 
 
     <properties>
+        <jackson-databind.version>0.2.6</jackson-databind.version>
         <jakarta-validation.version>3.0.2</jakarta-validation.version>
         <openapi-generator-maven-plugin.version>7.1.0</openapi-generator-maven-plugin.version>
         <swagger-core.version>2.2.20</swagger-core.version>

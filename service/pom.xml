@@ -15,12 +15,10 @@
         <java.version>21</java.version>
         <testcontainers.version>1.15.2</testcontainers.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
-        <jackson-databind-nullable.version>0.2.6</jackson-databind-nullable.version>
         <springdoc-openapi-ui.version>1.8.0</springdoc-openapi-ui.version>
         <springdoc-webmvc-ui.version>2.1.0</springdoc-webmvc-ui.version>
         <mockito-junit-jupiter.version>5.12.0</mockito-junit-jupiter.version>
         <prettier-maven-plugin.version>0.16</prettier-maven-plugin.version>
-
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -75,7 +73,7 @@
         <dependency>
             <groupId>org.openapitools</groupId>
             <artifactId>jackson-databind-nullable</artifactId>
-            <version>${jackson-databind-nullable.version}</version>
+            <version>${jackson-databind.version}</version>
         </dependency>
 
 
@@ -137,7 +135,7 @@
     </dependencyManagement>
 
     <build>
-<!--        <resources>
+        <resources>
             <resource>
                 <directory>target/generated-sources/openapi/src/main/resources</directory>
             </resource>
@@ -149,7 +147,7 @@
                 <directory>src/test/resources</directory>
                 <filtering>true</filtering>
             </resource>
-        </resources>-->
+        </resources>
 
         <plugins>
 

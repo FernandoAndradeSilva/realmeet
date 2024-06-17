@@ -14,7 +14,6 @@
 
     <properties>
         <jsr305.version>3.0.2</jsr305.version>
-        <jackson-databind.version>0.2.6</jackson-databind.version>
     </properties>
 
     <dependencies>
