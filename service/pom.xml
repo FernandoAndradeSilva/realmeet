@@ -15,8 +15,9 @@
         <java.version>21</java.version>
         <testcontainers.version>1.15.2</testcontainers.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
-        <jackson-databind-nullable.version>0.2.1</jackson-databind-nullable.version>
+        <jackson-databind-nullable.version>0.2.6</jackson-databind-nullable.version>
         <springdoc-openapi-ui.version>1.8.0</springdoc-openapi-ui.version>
+        <springdoc-webmvc-ui.version>2.1.0</springdoc-webmvc-ui.version>
         <mockito-junit-jupiter.version>5.12.0</mockito-junit-jupiter.version>
         <prettier-maven-plugin.version>0.16</prettier-maven-plugin.version>
 
@@ -58,6 +59,13 @@
         </dependency>
 
         <!-- Documentation -->
+
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>${springdoc-webmvc-ui.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
@@ -72,9 +80,17 @@
 
 
         <dependency>
-            <groupId>io.swagger</groupId>
+            <groupId>io.swagger.core.v3</groupId>
             <artifactId>swagger-annotations</artifactId>
-            <version>${swagger-annotations.version}</version>
+            <version>${swagger-core.version}</version>
+        </dependency>
+
+
+        <!-- Validation -->
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>${jakarta-validation.version}</version>
         </dependency>
 
         <!-- Test -->
@@ -121,7 +137,7 @@
     </dependencyManagement>
 
     <build>
-        <resources>
+<!--        <resources>
             <resource>
                 <directory>target/generated-sources/openapi/src/main/resources</directory>
             </resource>
@@ -133,7 +149,7 @@
                 <directory>src/test/resources</directory>
                 <filtering>true</filtering>
             </resource>
-        </resources>
+        </resources>-->
 
         <plugins>
 
@@ -175,9 +191,7 @@
                     <fail>true</fail>
                     <ignoreConfigFile>true</ignoreConfigFile>
                     <ignoreEditorConfig>true</ignoreEditorConfig>
-                    <!-- Use <inputGlobs> to override the default input patterns -->
                     <inputGlobs>
-                        <!-- These are the default patterns, you can omit <inputGlobs> entirely unless you want to override them -->
                         <inputGlob>src/main/java/**/*.java</inputGlob>
                         <inputGlob>src/test/java/**/*.java</inputGlob>
                     </inputGlobs>
@@ -206,7 +220,7 @@
             <plugin>
                 <groupId>org.openapitools</groupId>
                 <artifactId>openapi-generator-maven-plugin</artifactId>
-                <version>${openapi-generator-maven-plugin.version}</version>
+                <version>7.1.0</version>
                 <executions>
                     <execution>
                         <goals>
@@ -215,17 +229,16 @@
                         <configuration>
                             <inputSpec>${openapi-spec.file}</inputSpec>
                             <generatorName>spring</generatorName>
-                            <modelPackage>${api.path}.api.model</modelPackage>
                             <apiPackage>${api.path}.api.facade</apiPackage>
+                            <modelPackage>${api.path}.api.model</modelPackage>
+                            <supportingFilesToGenerate>
+                                ApiUtil.java
+                            </supportingFilesToGenerate>
                             <configOptions>
+                                <sourceFolder>src/main/java/</sourceFolder>
+                                <delegatePattern>true</delegatePattern>
                                 <interfaceOnly>true</interfaceOnly>
-                                <dateLibrary>java8</dateLibrary>
-                                <java8>true</java8>
-                                <async>true</async>
-                                <serializableModel>true</serializableModel>
-                                <configPackage>${api.path}.api.config</configPackage>
-                                <classpathTargetSpec>${openapi-spec.classpath}</classpathTargetSpec>
-                                <isCorsEnabled>true</isCorsEnabled>
+                                <useJakartaEe>true</useJakartaEe>
                             </configOptions>
                         </configuration>
                     </execution>

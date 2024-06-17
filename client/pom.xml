@@ -26,9 +26,9 @@
 
         <!-- Documentation -->
         <dependency>
-            <groupId>io.swagger</groupId>
+            <groupId>io.swagger.core.v3</groupId>
             <artifactId>swagger-annotations</artifactId>
-            <version>${swagger-annotations.version}</version>
+            <version>${swagger-core.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
@@ -56,19 +56,15 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
+                            <library>resttemplate</library>
                             <inputSpec>${openapi-spec.file}</inputSpec>
                             <generatorName>java</generatorName>
-                            <library>resttemplate</library>
-                            <modelPackage>${api.path}.api.model</modelPackage>
                             <apiPackage>${api.path}.api.facade</apiPackage>
+                            <modelPackage>${api.path}.api.model</modelPackage>
                             <configOptions>
-                                <async>true</async>
-                                <java8>true</java8>
-                                <serializableModel>true</serializableModel>
-                                <configPackage>${api.path}.api.config</configPackage>
-                                <classpathTargetSpec>${openapi-spec.classpath}</classpathTargetSpec>
-                                <isCorsEnabled>true</isCorsEnabled>
-                                <dateLibrary>java8</dateLibrary>
+                                <sourceFolder>src/main/java/</sourceFolder>
+                                <delegatePattern>true</delegatePattern>
+                                <useJakartaEe>true</useJakartaEe>
                             </configOptions>
                         </configuration>
                     </execution>

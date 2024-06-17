@@ -24,14 +24,12 @@
 
 
     <properties>
-        <openapi-generator-maven-plugin.version>7.1.0</openapi-generator-maven-plugin.version>
-        <swagger-annotations.version>1.6.11</swagger-annotations.version>
+        <jakarta-validation.version>3.0.2</jakarta-validation.version>
+        <openapi-generator-maven-plugin.version>6.6.0</openapi-generator-maven-plugin.version>
+        <swagger-core.version>2.2.20</swagger-core.version>
         <openapi-spec.file>${project.basedir}/../service/src/main/resources/api.yml</openapi-spec.file>
         <openapi-spec.classpath>classpath:api.yml</openapi-spec.classpath>
         <api.path>br.com.fernando.realmeet</api.path>
-        <javax-validation.version>2.0.1.Final</javax-validation.version>
-        <javax-annotation.version>1.3.2</javax-annotation.version>
-        <javax-servlet.version>4.0.1</javax-servlet.version>
     </properties>
 
     <dependencies>
@@ -39,25 +37,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>${javax-validation.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.annotation</groupId>
-            <artifactId>javax.annotation-api</artifactId>
-            <version>${javax-annotation.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${javax-servlet.version}</version>
-            <scope>provided</scope>
         </dependency>
 
     </dependencies>
