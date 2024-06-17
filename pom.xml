@@ -25,7 +25,7 @@
 
     <properties>
         <jakarta-validation.version>3.0.2</jakarta-validation.version>
-        <openapi-generator-maven-plugin.version>6.6.0</openapi-generator-maven-plugin.version>
+        <openapi-generator-maven-plugin.version>7.1.0</openapi-generator-maven-plugin.version>
         <swagger-core.version>2.2.20</swagger-core.version>
         <openapi-spec.file>${project.basedir}/../service/src/main/resources/api.yml</openapi-spec.file>
         <openapi-spec.classpath>classpath:api.yml</openapi-spec.classpath>

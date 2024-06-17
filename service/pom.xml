@@ -137,7 +137,7 @@
     </dependencyManagement>
 
     <build>
-        <resources>
+<!--        <resources>
             <resource>
                 <directory>target/generated-sources/openapi/src/main/resources</directory>
             </resource>
@@ -149,7 +149,7 @@
                 <directory>src/test/resources</directory>
                 <filtering>true</filtering>
             </resource>
-        </resources>
+        </resources>-->
 
         <plugins>
 
@@ -220,7 +220,7 @@
             <plugin>
                 <groupId>org.openapitools</groupId>
                 <artifactId>openapi-generator-maven-plugin</artifactId>
-                <version>7.1.0</version>
+                <version>${openapi-generator-maven-plugin.version}</version>
                 <executions>
                     <execution>
                         <goals>
