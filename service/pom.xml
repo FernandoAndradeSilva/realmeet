@@ -237,6 +237,8 @@
                                 <delegatePattern>true</delegatePattern>
                                 <interfaceOnly>true</interfaceOnly>
                                 <useJakartaEe>true</useJakartaEe>
+                                <async>true</async>
+                                <useOptional>true</useOptional>
                             </configOptions>
                         </configuration>
                     </execution>
