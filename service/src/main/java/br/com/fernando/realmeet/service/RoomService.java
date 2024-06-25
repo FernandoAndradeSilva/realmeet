@@ -18,9 +18,15 @@ public class RoomService {
     @Autowired
     private RoomMapper roomMapper;
 
+    public RoomService(RoomRepository roomRepository, RoomMapper roomMapper) {
+        this.roomRepository = roomRepository;
+        this.roomMapper = roomMapper;
+    }
+
     public RoomDTO getRoom(Long id) {
         Objects.requireNonNull(id);
-        Room room = roomRepository.findById(id).orElseThrow(() -> new RoomNotFoundException("Room not found: " + id));
+        Room room = roomRepository.findByIdAndActive(id , true)
+                .orElseThrow(() -> new RoomNotFoundException("Room not found: " + id));
         return roomMapper.fromEntityToDto(room);
     }
 
